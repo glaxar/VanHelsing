@@ -15,9 +15,9 @@ public class HUDScript : MonoBehaviour {
     public Slider ammoSlider;
 
     //inventory
-    bool cross = false;
-    bool water = false;
-    bool wafer = false;
+    public bool cross = false;
+    public bool water = false;
+    public bool wafers = false;
     public Slider inventorySlider;
 
     // Use this for initialization
@@ -55,6 +55,29 @@ public class HUDScript : MonoBehaviour {
         {
             //reload
             ammo = 6;
+        }
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        //Destroy(other.gameObject);
+        if (other.gameObject.CompareTag("Cross"))
+        {
+            other.gameObject.SetActive(false);
+            cross = true;
+            //GameObject.Find("InvCross").SetActive(true);
+        }
+
+        if (other.gameObject.CompareTag("Water"))
+        {
+            other.gameObject.SetActive(false);
+            water = true;
+        }
+
+        if (other.gameObject.CompareTag("Wafers"))
+        {
+            other.gameObject.SetActive(false);
+            wafers = true;
         }
     }
 }

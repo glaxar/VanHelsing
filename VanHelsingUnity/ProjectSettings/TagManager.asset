@@ -11,6 +11,14 @@ TagManager:
   - ammo4
   - ammo5
   - ammo6
+  - InvCross
+  - InvWater
+  - InvWafers
+  - Obelisk
+  - Cross
+  - Water
+  - Wafers
+  - InvWafer
   layers:
   - Default
   - TransparentFX
