@@ -50,7 +50,7 @@ public class HUDScript : MonoBehaviour {
     public void shoot(int bullets)
     {
         ammo -= bullets;   
-        ammoSlider.value = ammo;
+        //ammoSlider.value = ammo;
         if (ammo <= 0)
         {
             //reload

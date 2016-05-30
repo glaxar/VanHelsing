@@ -19,6 +19,7 @@ TagManager:
   - Water
   - Wafers
   - InvWafer
+  - bullet
   layers:
   - Default
   - TransparentFX
