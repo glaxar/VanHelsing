@@ -20,6 +20,7 @@ TagManager:
   - Wafers
   - InvWafer
   - bullet
+  - Crab
   layers:
   - Default
   - TransparentFX

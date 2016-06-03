@@ -34,6 +34,7 @@ public class CrabTurretScript : MonoBehaviour {
     public void hurt(int amount)
     {
         health -= amount;
+
         if (health <= 0)
         {
             Destroy(gameObject);
