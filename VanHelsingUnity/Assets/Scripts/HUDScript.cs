@@ -20,6 +20,8 @@ public class HUDScript : MonoBehaviour {
     public bool wafers = false;
     public Slider inventorySlider;
 
+    public int obelisk = 3;
+
     // Use this for initialization
     void Start () {
         health = startingHealth;
@@ -78,6 +80,12 @@ public class HUDScript : MonoBehaviour {
         {
             other.gameObject.SetActive(false);
             wafers = true;
+        }
+
+        if (other.gameObject.CompareTag("Obelisk"))
+        {
+            other.gameObject.SetActive(false);
+            obelisk -= 1;
         }
     }
 }

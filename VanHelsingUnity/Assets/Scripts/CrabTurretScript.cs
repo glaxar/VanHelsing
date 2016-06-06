@@ -27,7 +27,7 @@ public class CrabTurretScript : MonoBehaviour {
         if (other.gameObject.tag == "bullet")
         {
             hurt(10);
-            Destroy(gameObject);
+            Destroy(other.gameObject);
         }
     }
 

@@ -7,7 +7,7 @@ public class ShootScript : MonoBehaviour
 {
 
     public Rigidbody bullet;
-    public float speed = 15;
+    public float speed = 25;
     public float fireRate = 1.0f;
     public float fireTime = 0.0f;
 

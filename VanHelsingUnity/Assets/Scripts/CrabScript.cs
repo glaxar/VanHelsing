@@ -4,11 +4,11 @@ using System.Collections;
 public class CrabScript : MonoBehaviour {
     //health
     public int enemyHealth = 100;
-    public int health;
+    public int Health;
     public int damage = 10;
-    bool attack = false;
-    float timer = 0.0f;
-    float waitTime = 1.0f;
+    public bool attack = false;
+    public float timer = 0.0f;
+    public float waitTime = 1.0f;
     Transform player;
     NavMeshAgent nav;
     CapsuleCollider capsuleCollider;
@@ -16,7 +16,7 @@ public class CrabScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        health = enemyHealth;
+        Health = enemyHealth;
         capsuleCollider = GetComponent<CapsuleCollider>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         nav = GetComponent<NavMeshAgent>();
@@ -24,9 +24,15 @@ public class CrabScript : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == player)
+        if (other.gameObject.tag == "Player")
         {
             attack = true;
+        }
+
+        if (other.gameObject.tag == "bullet")
+        {
+            Hurt(10);
+            Destroy(other.gameObject);
         }
     }
 
@@ -42,7 +48,7 @@ public class CrabScript : MonoBehaviour {
     void Update () {
         timer += Time.deltaTime;
 
-        if (health > 0)
+        if (Health > 0)
             {
                 if (attack == true)
                 {
@@ -64,13 +70,14 @@ public class CrabScript : MonoBehaviour {
 
     public void Hurt(int amount)
     {
-        health -= amount;
+        Health -= amount;
 
-        if (health <= 0)
+        if (Health <= 0)
         {
-            capsuleCollider.isTrigger = true;
-            GetComponent<NavMeshAgent>().enabled = false;
             Destroy(gameObject);
+            //capsuleCollider.isTrigger = true;
+            //GetComponent<NavMeshAgent>().enabled = false;
+            
         }
     }
 }
