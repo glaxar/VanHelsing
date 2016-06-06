@@ -18,6 +18,7 @@ public class CrabScript : MonoBehaviour {
 	void Start () {
         Health = enemyHealth;
         capsuleCollider = GetComponent<CapsuleCollider>();
+        playerHealth = player.GetComponent<HUDScript>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         nav = GetComponent<NavMeshAgent>();
 	}
@@ -55,7 +56,7 @@ public class CrabScript : MonoBehaviour {
                     if (timer >= waitTime)
                     {
                         timer = 0;
-
+                    
                         if (playerHealth.health > 0)
                         {
                             playerHealth.hurt(damage);
